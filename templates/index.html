@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ComfyUI Video Gallery</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ComfyUI Video Gallery</h1>
+            <div class="actions">
+                <button id="select-all" class="btn">Select All</button>
+                <button id="deselect-all" class="btn">Deselect All</button>
+                <button id="delete-selected" class="btn btn-danger" disabled>Delete Selected</button>
+                <button id="download-selected" class="btn btn-primary" disabled>Download Selected</button>
+            </div>
+        </header>
+        
+        <div class="main-content">
+            <div class="gallery-container">
+                <div id="video-gallery" class="video-gallery">
+                    <!-- Videos will be loaded here -->
+                    <div class="loading">Loading videos...</div>
+                </div>
+            </div>
+            
+            <div class="preview-container">
+                <div id="video-preview" class="video-preview">
+                    <div class="no-selection">
+                        <i class="fas fa-film"></i>
+                        <p>Select a video to preview</p>
+                    </div>
+                </div>
+                <div id="video-info" class="video-info">
+                    <!-- Video info will be displayed here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal for confirmations -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-title">Confirmation</h2>
+            <p id="modal-message">Are you sure you want to proceed?</p>
+            <div class="modal-actions">
+                <button id="modal-cancel" class="btn">Cancel</button>
+                <button id="modal-confirm" class="btn btn-danger">Confirm</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/gallery.js') }}"></script>
+</body>
+</html>
